@@ -5,5 +5,16 @@ console.log(smallImg);
 smallImg.forEach((img) => {
   img.addEventListener("click", function () {
     modal.classList.add("open");
+    fullImg.classList.add("open");
+    //changing the img dynamically
+    const originalQuality = img.getAttribute("alt");
+    fullImg.src = `img/full/${originalQuality}.jpg`;
   });
+});
+
+modal.addEventListener("click", function (e) {
+  if (e.target.classList.contains("modal")) {
+    modal.classList.remove("open");
+    fullImg.classList.remove("open");
+  }
 });
